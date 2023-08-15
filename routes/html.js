@@ -1,5 +1,5 @@
 const html = require('express').Router();
-const path = require('.path');
+const path = require('path');
 
 // GET Notes returns notes.html file
 html.get('/notes', (req, res) => {
