@@ -14,8 +14,8 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static('public'));
 
-const htmlRouter = require('./routes/html');
-const apiRouter = require('./routes/apiRoute');
+const htmlRouter = require('./routes/html.js');
+const apiRouter = require('./routes/apiRoute.js');
 
 
 app.use(htmlRouter);
