@@ -1,8 +1,5 @@
 const express = require('express');
 
-// Import routes
-// const api = require('./routes/index.js');
-
 const PORT = process.env.PORT || 3001;
 
 const app = express();
@@ -10,14 +7,13 @@ const app = express();
 // Middleware for parsing JSON and urlencoded form data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-// app.use('/api', api);
-
 app.use(express.static('public'));
 
+// Import routes
 const htmlRouter = require('./routes/html.js');
 const apiRouter = require('./routes/apiRoute.js');
 
-
+// Call routes
 app.use(htmlRouter);
 app.use('/api', apiRouter);
 
