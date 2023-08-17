@@ -13,11 +13,12 @@ apiRoute.get('/api/notes', (req, res) => {
 
 // POST /api/notes receives a new note to save on the request body and adds it to db.json, then returns new note to client
 apiRoute.post('/api/notes', (req, res) => {
- let dbData = fs.readFileSync('db/db.json');
- dbData = JSON.parse(dbData);
- res.json(dbData);
+  fs.readFile('./db/db.json', (err, data) => {
+    if (err) throw err;
 
-  let newNote = {
+  let dbData = JSON.parse(data);
+
+  const newNote = {
     title: req.body.title,
     text: req.body.text,
     id: uuidv4(),
@@ -25,8 +26,9 @@ apiRoute.post('/api/notes', (req, res) => {
 
   dbData.push(newNote);
 
-  fs.writeFileSync('/db/db.json', JSON.stringify(dbData))
-  res.json(dbData);
+  fs.writeFileSync('./db/db.json', JSON.stringify(dbData))
+  res.json(newNote);
+  });
 });
 
 module.exports = apiRoute;
