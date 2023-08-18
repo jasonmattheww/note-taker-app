@@ -14,8 +14,8 @@ const htmlRouter = require('./routes/html.js');
 const apiRouter = require('./routes/apiRoute.js');
 
 // Call routes
-app.use(htmlRouter);
-app.use('/', apiRouter);
+app.use('/api', apiRouter);
+app.use('/', htmlRouter);
 
 app.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT}`)
