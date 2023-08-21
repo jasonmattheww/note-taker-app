@@ -18,6 +18,10 @@ Clone repo then run the following line of code in your terminal to install all t
 npm i
 ```
 
+## Deployment
+
+https://mighty-island-36271-d09f67296834.herokuapp.com/
+
 ## Usage
 
 ![](./images/note-taker-app-usage1.png)
